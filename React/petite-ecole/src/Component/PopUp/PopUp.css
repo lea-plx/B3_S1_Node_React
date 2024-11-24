@@ -1,0 +1,50 @@
+
+.overlay {
+    position: fixed; /* Positionné par rapport à la fenêtre du navigateur */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Prend toute la largeur de l'écran */
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+    background-color: rgba(0, 0, 0, 0.5); /* transparence de 50% */
+    display: flex;
+    justify-content: center; /* Centre le contenu de la popup horizontalement */
+    align-items: center; /* Centre le contenu de la popup verticalement */
+    z-index: 1000; /* Assure que l'overlay est au-dessus du contenu */
+}
+
+.popupContent {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 300px; 
+}
+
+
+/* 1. Ce que fait top: 50% et left: 50% :
+top: 50% place le coin supérieur gauche de ton élément à 50% de la hauteur de la fenêtre.
+left: 50% place le coin supérieur gauche de ton élément à 50% de la largeur de la fenêtre.
+Donc avec top: 50% et left: 50%, ton élément est centré par rapport à son coin supérieur gauche, mais ce n'est pas encore ce que tu veux. Tu vois ? Il se place à 50% de la fenêtre, mais avec son coin supérieur gauche à ce point.
+
+2. Pourquoi on utilise transform: translate(-50%, -50%) :
+transform: translate(-50%, -50%) sert à déplacer l'élément de 50% de sa propre largeur vers la gauche et de 50% de sa propre hauteur vers le haut.
+Cela a pour but de compensar le décalage causé par top: 50% et left: 50%, afin de centrer vraiment ton élément au milieu de la fenêtre, en utilisant son centre plutôt que son coin supérieur gauche 
+
+.popupContent {
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background: white; 
+    padding: 20px; 
+    border-radius: 8px; 
+    z-index: 1000; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+
+
+
+
+*/
