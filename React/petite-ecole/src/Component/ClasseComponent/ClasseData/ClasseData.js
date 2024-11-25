@@ -2,9 +2,9 @@ import "./ClasseData.css"
 import { FiMoreVertical } from "react-icons/fi";
 
 export function ClasseData(props) {
-    const togglePopupAddStudent = () => {
+    const togglePopupAddStudent = (e) => {
         if (props.popupVisible === false) {
-            props.setPopupVisible("addStudent");
+            props.setPopupVisible(e.target.id);
             console.log(props.popupVisible)
         }else{
             props.setPopupVisible(false);
@@ -18,9 +18,9 @@ export function ClasseData(props) {
                 <p className="classeNbrStudent">{props.nbrStudent} {props.nbrStudent > 1 ? "élèves" : "élève"}</p>
             </div>
             <div className="styleButtons">
-                <button type="button" class="btn btn-outline-primary btn-sm" onClick={togglePopupAddStudent}>Ajouter des élèves</button>
-                <button type="button" class="btn btn-light btn-sm">Détails</button>
-                <FiMoreVertical className="menuIcon"/>
+                <button id="addStudent" type="button" class="btn btn-outline-primary btn-sm" onClick={togglePopupAddStudent}>Ajouter des élèves</button>
+                <button id="infoClasse" type="button" class="btn btn-light btn-sm" onClick={togglePopupAddStudent}>Détails</button>
+                <FiMoreVertical className="reactIcon"/>
             </div>
         </div>
     )

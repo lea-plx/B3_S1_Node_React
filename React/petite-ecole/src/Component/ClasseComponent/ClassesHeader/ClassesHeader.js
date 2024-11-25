@@ -1,9 +1,9 @@
 import "./ClassesHeader.css"
 
 export function ClassesHeader (props) {
-    const togglePopupCreateClasses = () => {
+    const togglePopupCreateClasses = (e) => {
         if (props.popupVisible === false) {
-            props.setPopupVisible("createClasses");
+            props.setPopupVisible(e.target.id);
             console.log(props.popupVisible)
         }else{
             props.setPopupVisible(false);
@@ -12,7 +12,7 @@ export function ClassesHeader (props) {
     return (
         <div className="headerContent">
             <p className="headerTitle">Mes classes</p>
-            <button type="button" class="btn btn-primary btn-sm" onClick={togglePopupCreateClasses}>Créer un classe</button>
+            <button id="createClasse" type="button" class="btn btn-primary btn-sm" onClick={togglePopupCreateClasses}>Créer un classe</button>
         </div>
     )
 }
