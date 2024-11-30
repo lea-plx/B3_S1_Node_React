@@ -1,0 +1,8 @@
+.StyleSideBar {
+    display: flex;
+    flex-direction: column;
+    background-color: #F8FAFC;
+    height: stretch;
+    width: fit-content;
+    padding: 30px;
+}

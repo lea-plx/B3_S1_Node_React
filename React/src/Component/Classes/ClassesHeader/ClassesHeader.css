@@ -1,0 +1,12 @@
+.headerTitle {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+}
