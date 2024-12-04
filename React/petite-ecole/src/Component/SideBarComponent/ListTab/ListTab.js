@@ -14,19 +14,16 @@ const data = [
   },
 ];
 
-export function ListTab() {
-
-  const [activeTab, setActiveTab] = useState(0)
-
+export function ListTab(props) {
 
 
   return (
     <div className="listTab">
       {data.map((tabData, i) => {
-        if (i === activeTab) {
-          return <Tab tab={tabData.label} active={true} index={i} setActiveTab={setActiveTab}/>;
+        if (i === props.nav) {
+          return <Tab tab={tabData.label} active={true} index={i} setNav={props.setNav}/>;
         } else {
-          return <Tab tab={tabData.label} active={false} index={i} setActiveTab={setActiveTab} />;
+          return <Tab tab={tabData.label} active={false} index={i} setNav={props.setNav} />;
         }
       })}
     </div>

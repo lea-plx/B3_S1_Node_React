@@ -41,6 +41,7 @@
   height: 600px;
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .groupCollaps {

@@ -1,10 +1,10 @@
 import { ListTab } from "../ListTab/ListTab";
 import "./SideBar.css"
 
-export function SideBar () {
+export function SideBar (props) {
     return (
         <div className="StyleSideBar">
-            <ListTab/> 
+            <ListTab nav={props.nav} setNav={props.setNav}/> 
         </div>
     )
 }

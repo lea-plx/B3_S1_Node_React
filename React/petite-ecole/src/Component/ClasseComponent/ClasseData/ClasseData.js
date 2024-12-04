@@ -1,5 +1,7 @@
 import "./ClasseData.css"
-import { FiMoreVertical } from "react-icons/fi";
+import { FiEdit2 } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
+
 
 export function ClasseData(props) {
     const togglePopupAddStudent = (e) => {
@@ -20,7 +22,8 @@ export function ClasseData(props) {
             <div className="styleButtons">
                 <button id="addStudent" type="button" class="btn btn-outline-primary btn-sm" onClick={togglePopupAddStudent}>Ajouter des élèves</button>
                 <button id="infoClasse" type="button" class="btn btn-light btn-sm" onClick={togglePopupAddStudent}>Détails</button>
-                <FiMoreVertical className="reactIcon"/>
+                <FiEdit2 id="editClasse" className="reactIcon" onClick={togglePopupAddStudent}/>
+                <FiTrash2 id="deletClasse" className="reactIcon" onClick={togglePopupAddStudent}/>
             </div>
         </div>
     )

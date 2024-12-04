@@ -35,3 +35,13 @@
 .btn {
     cursor: pointer;
 }
+
+
+#deletClasse:hover{
+    color: rgb(188, 24, 24);
+}
+
+#editClasse:hover{
+    color: #0d6efd;
+
+}
