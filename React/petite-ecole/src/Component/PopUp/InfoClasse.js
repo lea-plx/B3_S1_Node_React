@@ -1,30 +1,37 @@
 import { FiX } from "react-icons/fi";
 
-let data = {
-        "classeName" : "B3 - Data IA",
-        "students" : [
-            {
-                "name" : "Ethan"
-            },
-            {
-                "name" : "Léa"
-            }
-        ]
-    }
+// let data = {
+//         "classeName" : "B3 - Data IA",
+//         "students" : [
+//             {
+//                 "name" : "Ethan"
+//             },
+//             {
+//                 "name" : "Léa"
+//             }
+//         ]
+//     }
 
 
 export function InfoClass (props) {
     
+    if (!props.data.students){
+        return (
+            <div className="popupContentComponent">
+                Pas de classe
+            </div>
+        )
+    }
 
     return (
             <div className="popupContentComponent">
                 <div className="popUpHeader">
-                    <h4>{data.classeName}</h4>
+                    <h4>{props.data.name}</h4>
                     <FiX onClick={props.closePopUp} className="reactIcon"/>
                 </div>
                 <p>Liste des élèves :</p>
                 <ul class="list-group">
-                    {data.students.map((dataName) => {
+                    {props.data.students.map((dataName) => {
                         return <li class="list-group-item">{dataName.name}</li>
                     })}                   
                 </ul>

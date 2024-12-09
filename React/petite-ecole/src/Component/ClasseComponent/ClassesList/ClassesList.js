@@ -1,23 +1,32 @@
 import { ClasseData } from "../ClasseData/ClasseData";
-
-let data = [
-    {
-        "label" : "B3 - DATA IA",
-        "students" : [1,2,3,4,4]
-    },
-    {
-        "label" : "B3 - Cyber",
-        "students" : [1]
-    }
-]
-
+import { getClassData } from "../../../Controlleur/controller_class.js";
+import { useEffect, useState } from "react";
 
 
 export function ClassesList (props) {
+
+    const [dataClass, setDataClass] = useState()
+    
+    useEffect(() => {
+        getClassData().then((dataClass) => {
+            setDataClass(dataClass)
+        }).catch((error) => {
+            console.error("Error fetching data:", error);
+        });    
+    },[])
+
+    if (!dataClass){
+        return (
+            <div className="listStyle">
+                chargement...
+            </div>
+        )
+    }
+    
     return (
-        <div>
-            {data.map((elmClasse) => {
-                return <ClasseData setPopupVisible={props.setPopupVisible} popupVisible={props.popupVisible} classeName={elmClasse.label} nbrStudent={elmClasse.students.length}/>
+        <div className="listStyle">
+            {dataClass.map((elmClasse) => {
+                return <ClasseData setPopupVisible={props.setPopupVisible} popupVisible={props.popupVisible} data={elmClasse}/>
             })}
         </div>
     )

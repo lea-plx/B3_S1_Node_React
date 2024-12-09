@@ -11,6 +11,10 @@ const schoolData = {
         {
             "name" : "B1 - Data IA",
             "students" : []
+        },
+        {
+            "name" : "B1 - Cyber",
+            "students" : ["Léa"]
         }
     ],
 }
