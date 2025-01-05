@@ -4,12 +4,14 @@ import { SideBar } from './Component/SideBarComponent/SideBar/SideBar';
 import { Accueil } from './Component/Accueil/Accueil';
 import { Classes } from './Component/ClasseComponent/Classes/Classes';
 import { useState } from 'react';
+import { Students } from './Component/StudentsComponent/Students/Students';
 
 function App() {
   const [nav, setNav] = useState(0)
   const components = [
     <Accueil />,
     <Classes />,
+    <Students />
   ];
 
   return (

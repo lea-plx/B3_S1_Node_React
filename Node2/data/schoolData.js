@@ -5,6 +5,12 @@ const schoolData = {
             "lastName" : "Poilleux",
             "age" : 20,
             "mail" : "lea@pstb.fr",
+        },
+        {
+            "firstName" : "Tessa",
+            "lastName" : "Poilleux",
+            "age" : 15,
+            "mail" : "tessa@pstb.fr",
         }
     ],
     "class" : [
@@ -14,7 +20,7 @@ const schoolData = {
         },
         {
             "name" : "B1 - Cyber",
-            "students" : ["Léa"]
+            "students" : ["Léa Poilleux", "Tessa"]
         }
     ],
 }

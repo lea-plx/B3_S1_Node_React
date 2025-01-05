@@ -9,3 +9,4 @@ export async function getClassData() {
         console.log(error)
     }
 }
+

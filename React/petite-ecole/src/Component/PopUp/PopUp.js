@@ -6,8 +6,10 @@ import "./PopUp.css"
 
 
 export function PopUp (props) {
-    const id = props.popupVisible
-    console.log(id, data)
+    const id = props.popupId
+    const data = props.popupData
+
+    // console.log(id, data)
     return (
         <div className="overlay">
             <div className="popupContent">

@@ -22,5 +22,16 @@ router.post("/", (req, res) => {
 
 })
 
+router.put("/", (req, res) => {
+    console.log("in put class")
+})
+
+
+router.delete("/:ID", (req, res) => {
+    const className = schoolData["class"]
+    console.log("in delete")
+    console.log(className)
+})
+
 
 export default router
