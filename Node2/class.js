@@ -22,15 +22,21 @@ router.post("/", (req, res) => {
 
 })
 
-router.put("/", (req, res) => {
-    console.log("in put class")
+router.put("/:id", (req, res) => {
+    const id = req.params.id
+    schoolData["class"][id].name = req.body.name
+    schoolData["class"][id].students = req.body.students
+    res.send(schoolData["class"][id])
 })
 
 
-router.delete("/:ID", (req, res) => {
-    const className = schoolData["class"]
+router.delete("/:id", (req, res) => {
     console.log("in delete")
-    console.log(className)
+    const id = req.params.id
+    console.log(req.params.id)
+    schoolData["class"].splice(id, 1)
+    console.log(schoolData["class"])
+    res.send(schoolData["class"])
 })
 
 

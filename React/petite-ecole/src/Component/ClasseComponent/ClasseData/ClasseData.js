@@ -20,10 +20,13 @@ export function ClasseData(props) {
         props.togglePopup()
         props.setPopupId(e.target.id)
         props.setPopupData(props.data)
+        props.setClassIdx(props.idx)
     }
 
     function activeDelete() {
-        deleteClass(props.data.name)
+        deleteClass(props.idx).then(() => {
+            props.reloadDataClass()
+        })
     }
 
 

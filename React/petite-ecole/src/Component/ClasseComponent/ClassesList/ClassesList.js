@@ -1,21 +1,10 @@
 import { ClasseData } from "../ClasseData/ClasseData";
-import { getClassData } from "../../../Controlleur/get_class.js";
-import { useEffect, useState } from "react";
+
 
 
 export function ClassesList (props) {
 
-    const [dataClass, setDataClass] = useState()
-    
-    // useEffect pour utiliser getClassData car asyncrone (attend réponse) pour mettre réponse dans dataClass
-
-    useEffect(() => {
-        getClassData().then((dataClass) => {
-            setDataClass(dataClass)
-        }).catch((error) => {
-            console.error("Error fetching data:", error);
-        });    
-    },[])
+    const dataClass = props.dataClass
 
     if (!dataClass){
         return (
@@ -27,9 +16,9 @@ export function ClassesList (props) {
     
     return (
         <div className="listStyle">
-            {dataClass.map((elmClasse) => {
+            {dataClass.map((elmClasse, idx) => {
                 // return <ClasseData setPopupVisible={props.setPopupVisible} popupVisible={props.popupVisible} data={elmClasse}/>
-                return <ClasseData togglePopup={props.togglePopup} setPopupId={props.setPopupId} data={elmClasse} setPopupData={props.setPopupData}/>
+                return <ClasseData togglePopup={props.togglePopup} setPopupId={props.setPopupId} setClassIdx={props.setClassIdx} data={elmClasse} setPopupData={props.setPopupData} idx={idx} reloadDataClass = {props.reloadDataClass}/>
             })}
         </div>
     )
