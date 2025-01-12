@@ -5,8 +5,7 @@ export async function putClass(idx, className, classStudent) {
     // idx = position de l'élément -> Pour savoir lequel edit
     // className = le nom / le nouveau nom de la class (si vide pas edit name)
     // studentName = list des nom d'étudiants
-    console.log(className, classStudent);
-    const response = await axios.put(`http://localhost:3000/class/${idx}`, {
+    const response = await axios.put(`http://localhost:3001/class/${idx}`, {
       name: className,
       students: classStudent,
     });

@@ -8,23 +8,23 @@ import "./PopUp.css"
 
 export function PopUp (props) {
     const id = props.popupId
-    const data = props.popupData
+    const popupData = props.popupData
 
     // console.log(id, data)
     return (
         <div className="overlay">
             <div className="popupContent">
                 <div hidden={id !== "createClasse"}>
-                    <CreaClasse data={data} closePopUp={props.closePopUp} reloadDataClass={props.reloadDataClass}/>
+                    <CreaClasse data={popupData} closePopUp={props.closePopUp} reloadDataClass={props.reloadDataClass}/>
                 </div>
                 <div hidden={id !== "addStudent"}>
-                    <AddStudent data={data} closePopUp={props.closePopUp} classIdx={props.classIdx} reloadDataClass={props.reloadDataClass}/>
+                    <AddStudent data={popupData} closePopUp={props.closePopUp} classIdx={props.classIdx} reloadDataClass={props.reloadDataClass}/>
                 </div>
                 <div hidden={id !== "infoClasse"}>
-                    <InfoClass data={data} closePopUp={props.closePopUp}/>
+                    <InfoClass data={popupData} closePopUp={props.closePopUp} reloadDataClass={props.reloadDataClass}/>
                 </div>
                 <div hidden={id !== "editClasse"}>
-                    <EditClasse data={data} closePopUp={props.closePopUp}/>
+                    <EditClasse data={popupData} closePopUp={props.closePopUp} reloadDataClass={props.reloadDataClass} id={props.classIdx}/>
                 </div>
             </div>
         </div>

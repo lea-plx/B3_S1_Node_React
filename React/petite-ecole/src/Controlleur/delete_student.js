@@ -1,12 +1,11 @@
 import axios from "axios"
 
-export async function getStudentsData() {
+export async function deleteStudent(idx) {
     try{
-        const response = await axios.get("http://localhost:3001/students")
+        const response = await axios.delete(`http://localhost:3001/students/${idx}`)
         const data = response.data
         return data
     }catch (error){
         console.log(error)
     }
 }
-

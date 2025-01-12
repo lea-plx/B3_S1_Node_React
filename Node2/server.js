@@ -4,7 +4,7 @@ import classes from "./class.js"
 import cors from "cors"
 
 const app = express()
-let port = 3000
+let port = 3001
 
 app.use(express.json())
 app.use(cors())

@@ -5,15 +5,7 @@ import { getStudentsData } from "../../../Controlleur/get_students";
 
 export function StudentsList (props) {
 
-    const [dataStudents, setDataStudents] = useState()
-    
-    useEffect(() => {
-        getStudentsData().then((dataClass) => {
-            setDataStudents(dataClass)
-        }).catch((error) => {
-            console.error("Error fetching data:", error);
-        });    
-    },[])
+    const dataStudents = props.dataStudent
 
     if (!dataStudents){
         return (
@@ -25,8 +17,8 @@ export function StudentsList (props) {
     
     return (
         <div className="listStyle">
-            {dataStudents.map((elmStudent) => {
-                return <StudentData togglePopup={props.togglePopup} setPopupId={props.setPopupId} data={elmStudent} setPopupData={props.setPopupData}/>
+            {dataStudents.map((elmStudent, idx) => {
+                return <StudentData togglePopupStudent={props.togglePopupStudent} setPopupStudentId={props.setPopupStudentId} setStudentIdx={props.setStudentIdx} data={elmStudent} setPopupStudentData={props.setPopupStudentData} idx={idx} reloadDataStudent={props.reloadDataStudent}/>
             })}
         </div>
     )

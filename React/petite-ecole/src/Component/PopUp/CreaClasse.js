@@ -1,7 +1,11 @@
 import { FiX } from "react-icons/fi";
 import { postClassData } from "../../Controlleur/post_class";
+import React, { useRef } from "react";
 
 export function CreaClasse(props) {
+
+  const inputRef = useRef(null);
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -11,9 +15,11 @@ export function CreaClasse(props) {
     postClassData({ name: inputValue, students: [] }).then(() => {
       props.reloadDataClass();
       props.closePopUp();
+      inputRef.current.value = "";
     });
   };
 
+  
   return (
     <div className="popupContentComponent">
       <div className="popUpHeader">
@@ -28,6 +34,7 @@ export function CreaClasse(props) {
             class="form-control"
             type="text"
             placeholder="Nom"
+            ref={inputRef}
           />
         </div>
         <div className="popUpButton">

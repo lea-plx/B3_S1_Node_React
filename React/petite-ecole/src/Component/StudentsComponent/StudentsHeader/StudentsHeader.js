@@ -2,15 +2,15 @@
 
 export function StudentsHeader (props) {
 
-    const popup = (e) => {
-        props.togglePopup()
-        props.setPopupId(e.target.id)
+    const goPopup = (e) => {
+        props.togglePopupStudent()
+        props.setPopupStudentId(e.target.id)
     }
 
     return (
         <div className="headerContent">
             <p className="headerTitle">Mes élèves</p>
-            <button id="createClasse" type="button" class="btn btn-primary btn-sm" onClick={popup}>Ajouter un élève</button>
+            <button id="createStudent" type="button" class="btn btn-primary btn-sm" onClick={goPopup}>Ajouter un élève</button>
         </div>
     )
 }

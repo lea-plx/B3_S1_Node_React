@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { putClass } from "../../Controlleur/put_class";
 
 export function AddStudent(props) {
+  
   const classStudent = props.data.students;
 
   const handleSubmit = (event) => {
@@ -26,6 +27,7 @@ export function AddStudent(props) {
     const selectValue = document.getElementById("exampleFormControlSelect1").value;
     classStudent.push(selectValue);
     putClass(props.classIdx, props.data.name, classStudent);
+    props.reloadDataClass();
     props.closePopUp();
   };
 

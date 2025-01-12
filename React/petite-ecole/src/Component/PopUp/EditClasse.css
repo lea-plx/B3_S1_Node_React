@@ -2,9 +2,21 @@
     color: red;
     
 }
+#deleteStudent{
+    color: rgb(193, 13, 13);
+    
+}
 
 .list-group-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.save_edit {
+    text-align: right;
+}
+
+hr {
+    margin: 5px;
 }

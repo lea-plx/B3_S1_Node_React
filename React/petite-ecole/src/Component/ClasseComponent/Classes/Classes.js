@@ -25,10 +25,10 @@ export function Classes () {
     // useEffect pour utiliser getClassData car asyncrone (attend réponse) pour mettre réponse dans dataClass
 
     function reloadDataClass () {
-        getClassData().then((dataClass) => {
-            setDataClass(dataClass)
+        getClassData().then((response) => {
+            setDataClass(response)
         }).catch((error) => {
-            console.error("Error fetching data:", error);
+            console.error("Error :", error);
         });    
     }
 
@@ -38,7 +38,6 @@ export function Classes () {
 
     return (
         <div className="styleClasses">
-            {console.log(popupVisible)}
             {/* <ClassesList setPopupVisible={setPopupVisible} popupVisible={popupVisible}/> */}
             {/* <ClassesHeader setPopupVisible={setPopupVisible} popupVisible={popupVisible}/> */}
             <ClassesHeader togglePopup={togglePopup} setPopupId={setPopupId}/>

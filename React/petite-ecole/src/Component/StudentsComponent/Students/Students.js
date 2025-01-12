@@ -1,29 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PopupStudent } from "../PopUp/PopupStudents";
 import { StudentsHeader } from "../StudentsHeader/StudentsHeader";
 import { StudentsList } from "../StudentsList/StudentsList";
+import { getStudentsData } from "../../../Controlleur/get_students";
 
-export function Students () {
+export function Students() {
+  const [popupStudentVisible, setPopupStudentVisible] = useState(false);
+  const [popupStudentId, setPopupStudentId] = useState();
+  const [popupStudentData, setPopupStudentData] = useState([]);
+  const [studentIdx, setStudentIdx] = useState([]);
 
-    const [popupVisible, setPopupVisible] = useState(false);
-    const [popupId, setPopupId] = useState();
-    const [popupData, setPopupData] = useState([]);
+  const togglePopupStudent = () => {
+    if (popupStudentVisible === false) {
+      setPopupStudentVisible(true);
+    } else {
+      setPopupStudentVisible(false);
+    }
+  };
 
-    const togglePopup = () => {
-        if (popupVisible === false) {
-            setPopupVisible(true);
-        }else{
-            setPopupVisible(false);
-        }
-    };
+  const [dataStudent, setDataStudent] = useState();
 
-    return (
-        <div className="styleClasses">
-            <StudentsHeader togglePopup={togglePopup} setPopupId={setPopupId}/>
-            <StudentsList togglePopup={togglePopup} setPopupId={setPopupId} setPopupData={setPopupData}/>
-            <div hidden={popupVisible === false}>
-                <PopupStudent closePopUp = {togglePopup} popupId={popupId} popupData={popupData}/>
-            </div>
-        </div>
-    )
+  function reloadDataStudent() {
+    getStudentsData()
+      .then((response) => {
+        setDataStudent(response);
+      })
+      .catch((error) => {
+        console.error("Error :", error);
+      });
+  }
+
+  useEffect(() => {
+    reloadDataStudent();
+  }, []);
+
+  return (
+    <div className="styleClasses">
+      <StudentsHeader togglePopupStudent={togglePopupStudent} setPopupStudentId={setPopupStudentId} />
+      <StudentsList
+        togglePopupStudent={togglePopupStudent}
+        setPopupStudentId={setPopupStudentId}
+        setPopupStudentData={setPopupStudentData}
+        setStudentIdx={setStudentIdx}
+        dataStudent={dataStudent}
+        reloadDataStudent={reloadDataStudent}
+      />
+      <div hidden={popupStudentVisible === false}>
+        <PopupStudent
+          closePopUp={togglePopupStudent}
+          popupStudentId={popupStudentId}
+          popupStudentData={popupStudentData}
+          studentIdx={studentIdx}
+          reloadDataStudent={reloadDataStudent}
+        />
+      </div>
+    </div>
+  );
 }

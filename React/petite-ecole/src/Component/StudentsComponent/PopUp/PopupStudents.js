@@ -1,26 +1,38 @@
+import { CreaStudent } from "./CreaStudent";
+import { InfoStudent } from "./InfoStudents";
+import "./PopUp.css";
 
-import { CreaStudent } from "./CreaStudent"
-import { InfoStudents } from "./InfoStudents"
-import "./PopUp.css"
+export function PopupStudent(props) {
+  const id = props.popupStudentId;
+  const popupData = props.popupStudentData;
+  
 
-
-
-export function PopupStudent (props) {
-    // const id = props.popupId
-    // const data = props.popupData
-
-    // // console.log(id, data)
-    // return (
-    //     <div className="overlay">
-    //         <div className="popupContent">
-    //             <div hidden={id !== "createStudent"}>
-    //                 <CreaStudent data={data} closePopUp={props.closePopUp}/>
-    //             </div>
-    //             <div hidden={id !== "infoStudents"}>
-    //                 <InfoStudents data={data} closePopUp={props.closePopUp}/>
-    //             </div>
-    //         </div>
-    //     </div>
-
-    // )
+  return (
+    <div className="overlay">
+      <div className="popupContent">
+        <div hidden={id !== "createStudent"}>
+          <CreaStudent
+            data={popupData}
+            closePopUp={props.closePopUp}
+            reloadDataStudent={props.reloadDataStudent}
+          />
+        </div>
+        <div hidden={id !== "infoStudent"}>
+          <InfoStudent
+            data={popupData}
+            closePopUp={props.closePopUp}
+            reloadDataStudent={props.reloadDataStudent}
+          />
+        </div>
+        {/* <div hidden={id !== "editStudent"}>
+          <EditClasse
+            data={popupData}
+            closePopUp={props.closePopUp}
+            reloadDataStudent={props.reloadDataStudent}
+            id={props.classIdx}
+          />
+        </div> */}
+      </div>
+    </div>
+  );
 }
