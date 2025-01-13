@@ -22,14 +22,12 @@ router.post("/", (req, res) => {
 })
 
 
-// to edit
-// router.put("/:id", (req, res) => {
-//     const id = req.params.id
-//     console.log(id, req.body)
-//     schoolData["class"][id].name = req.body.name
-//     schoolData["class"][id].students = req.body.students
-//     res.send(schoolData["class"][id])
-// })
+router.put("/:id", (req, res) => {
+    const id = req.params.id
+    console.log(id, req.body)
+    schoolData["students"][id] = req.body
+    res.send(schoolData["students"][id])
+})
 
 
 router.delete("/:id", (req, res) => {

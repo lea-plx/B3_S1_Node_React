@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { StudentData } from "../StudentData/StudentData";
-import { getStudentsData } from "../../../Controlleur/get_students";
 
 
 export function StudentsList (props) {

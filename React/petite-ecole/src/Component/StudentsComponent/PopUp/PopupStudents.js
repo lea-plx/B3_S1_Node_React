@@ -1,4 +1,5 @@
 import { CreaStudent } from "./CreaStudent";
+import { EditStudent } from "./EditStudent";
 import { InfoStudent } from "./InfoStudents";
 import "./PopUp.css";
 
@@ -24,14 +25,14 @@ export function PopupStudent(props) {
             reloadDataStudent={props.reloadDataStudent}
           />
         </div>
-        {/* <div hidden={id !== "editStudent"}>
-          <EditClasse
+        <div hidden={id !== "editStudent"}>
+          <EditStudent
             data={popupData}
             closePopUp={props.closePopUp}
             reloadDataStudent={props.reloadDataStudent}
-            id={props.classIdx}
+            id={props.studentIdx}
           />
-        </div> */}
+        </div>
       </div>
     </div>
   );

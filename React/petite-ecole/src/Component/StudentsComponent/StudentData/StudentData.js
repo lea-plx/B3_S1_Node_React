@@ -7,10 +7,14 @@ export function StudentData(props) {
   const dataStudent = props.data;
 
   const goPopup = (e) => {
-    props.togglePopupStudent();
+    e.stopPropagation()
+    console.log(e)
+    console.log(e.target)
+    console.log(e.target.id)
     props.setPopupStudentId(e.target.id);
     props.setPopupStudentData(dataStudent);
     props.setStudentIdx(props.idx);
+    props.togglePopupStudent();
   };
 
   function activeDelete() {
@@ -37,7 +41,9 @@ export function StudentData(props) {
         >
           Détails
         </button>
+        <div id="editStudent">
         <FiEdit2 id="editStudent" className="reactIcon" onClick={goPopup} />
+        </div>
         <FiTrash2
           id="deletStudent"
           className="reactIcon"
